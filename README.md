@@ -1,6 +1,6 @@
 # HOWTO
 
-Fill a distance array with the values 0 and INFINITY and then call:
+Fill a float distance array with the values 0 and INFINITY and then call:
 
 ```C
 sdf(squared_distances, nx, ny, closest_points);
@@ -90,3 +90,11 @@ int main(){
     return 0;
 }
 ```
+
+# Distance field
+
+![Image of distance field](https://raw.githubusercontent.com/983/sdf/master/df.jpg)
+
+# Voronoi diagram
+
+![Image of Voronoi diagram](https://raw.githubusercontent.com/983/sdf/master/voronoi.png)
