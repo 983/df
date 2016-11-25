@@ -1,5 +1,5 @@
-#define SDF_IMPLEMENTATION
-#include "sdf.h"
+#define DF_IMPLEMENTATION
+#include "df.h"
 
 #include <stdlib.h>
 #include <stdint.h>
@@ -18,11 +18,11 @@ int main(){
     uint8_t *colors = (uint8_t*)calloc(nx*ny, 3);
 
     float *squared_distances = (float*)malloc(nx*ny*sizeof(*squared_distances));
-    sdf_point *closest_points = (sdf_point*)calloc(nx*ny, sizeof(*closest_points));
+    df_point *closest_points = (df_point*)calloc(nx*ny, sizeof(*closest_points));
 
     /* Initialize distances to infinity. */
     for (i = 0; i < nx*ny; i++){
-        squared_distances[i] = SDF_INFINITY;
+        squared_distances[i] = DF_INFINITY;
     }
 
     /* Except some random points. */
@@ -42,11 +42,11 @@ int main(){
 
     /* Calculate squared distance field. */
     /* Last parameter may be NULL if not needed. */
-    sdf(squared_distances, nx, ny, closest_points);
+    df(squared_distances, nx, ny, closest_points);
 
     /* Draw voronoi diagram. */
     for (i = 0; i < nx*ny; i++){
-        sdf_point p = closest_points[i];
+        df_point p = closest_points[i];
         int j = p.x + p.y*nx;
         pixels[i*3 + 0] = colors[j*3 + 0];
         pixels[i*3 + 1] = colors[j*3 + 1];
