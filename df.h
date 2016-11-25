@@ -8,14 +8,21 @@ typedef struct df_point {
 
 #define DF_INFINITY (1.0f/0.0f)
 
+/* Based on                                                                 */
+/* A GENERAL ALGORITHM FOR COMPUTING DISTANCE TRANSFORMS IN LINEAR TIME     */
+/* by MEIJSTER et al.                                                       */
+/*                                                                          */
 /* Calculate squared distance field given a partial field of distances.     */
 /* Also calculates the closest point with a finite distance.                */
 /* Fields for which the squared distance should be calculated should be     */
 /* initialized to DF_INFINITY.                                              */
+/*                                                                          */
 /* If you want to calculate the df of a binary mask, set the distance to    */
 /* 0 if the mask is filled and to DF_INFINITY if the mask is not filled.    */
 /* Values besides 0 and DF_INFINITY work just as well.                      */
+/*                                                                          */
 /* If you do not need the closest point to a point, you can pass in NULL.   */
+/*                                                                          */
 /* 2D array indices are calculated as "i = x + y*nx", i.e. values are       */
 /* stored in row-major order.                                               */
 void df(float *distances, int nx, int ny, df_point *closest_points);

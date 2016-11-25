@@ -23,7 +23,7 @@ int main(){
     int ny = 1080;
     FILE *fp;
 
-    /* Pixels for image of sdf. */
+    /* Pixels for image of distance field. */
     uint8_t *pixels = (uint8_t*)calloc(nx*ny, 3);
     /* Colors for voronoi diagram. */
     uint8_t *colors = (uint8_t*)calloc(nx*ny, 3);
